@@ -134,13 +134,7 @@ void operatorControl() {
 		XDriveR = joystick1_1;
 		}
 
-		//for hypothetical tank drive controls
-		if (1 == 0)
-		{
-			XDriveX = joystick1_4;
-			XDriveY = ((joystick1_3+joystick1_2)/2);
-			XDriveR = (1-((joystick1_3-joystick1_2)/2));// I think I need to increase the rotation when doing slight turn. as of now if only one stick is applied it will 45 strafe.
-		}
+
 
 
 		// Y component, X component, Rotation
