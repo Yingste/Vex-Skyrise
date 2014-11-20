@@ -81,22 +81,22 @@ void operatorControl() {
 		bool button8r = joystickGetDigital(1,8,JOY_RIGHT);
 
 		//Declare Joystick2
-		int joystick1 = joystickGetAnalog(2,1);
-		int joystick2 = joystickGetAnalog(2,2);
-		int joystick3 = joystickGetAnalog(2,3);
-		int joystick4 = joystickGetAnalog(2,4);
-		bool button5u = joystickGetDigital(2,5,JOY_UP);
-		bool button5d = joystickGetDigital(2,5,JOY_DOWN);
-		bool button6u = joystickGetDigital(2,6,JOY_UP);
-		bool button6d = joystickGetDigital(2,6,JOY_DOWN);
-		bool button7u = joystickGetDigital(2,7,JOY_UP);
-		bool button7d = joystickGetDigital(2,7,JOY_DOWN);
-		bool button7l = joystickGetDigital(2,7,JOY_LEFT);
-		bool button7r = joystickGetDigital(2,7,JOY_RIGHT);
-		bool button8u = joystickGetDigital(2,8,JOY_UP);
-		bool button8d = joystickGetDigital(2,8,JOY_DOWN);
-		bool button8l = joystickGetDigital(2,8,JOY_LEFT);
-		bool button8r = joystickGetDigital(2,8,JOY_RIGHT);
+		int joystick2_1 = joystickGetAnalog(2,1);
+		int joystick2_2 = joystickGetAnalog(2,2);
+		int joystick2_3 = joystickGetAnalog(2,3);
+		int joystick2_4 = joystickGetAnalog(2,4);
+		bool button52_u = joystickGetDigital(2,5,JOY_UP);
+		bool button52_d = joystickGetDigital(2,5,JOY_DOWN);
+		bool button62_u = joystickGetDigital(2,6,JOY_UP);
+		bool button62_d = joystickGetDigital(2,6,JOY_DOWN);
+		bool button72_u = joystickGetDigital(2,7,JOY_UP);
+		bool button72_d = joystickGetDigital(2,7,JOY_DOWN);
+		bool button72_l = joystickGetDigital(2,7,JOY_LEFT);
+		bool button72_r = joystickGetDigital(2,7,JOY_RIGHT);
+		bool button82_u = joystickGetDigital(2,8,JOY_UP);
+		bool button82_d = joystickGetDigital(2,8,JOY_DOWN);
+		bool button82_l = joystickGetDigital(2,8,JOY_LEFT);
+		bool button82_r = joystickGetDigital(2,8,JOY_RIGHT);
 
 
 		//--------------------------------------------------------------------
@@ -105,16 +105,18 @@ void operatorControl() {
 		int XDriveX;
 		int XDriveY;
 		int XDriveR;
-
+		int lift;
 
 		//--------------------------------------------------------------------
 		//------ Drive Train
 		//--------------------------------------------------------------------
 
+
+
 		// Controller 1/2, Stick L/R, Axis X/Y
 
 		//for arcade drive
-		if (1 == 0)
+		if (1 == 1)
 		{
 		XDriveX = joystick4;
 		XDriveY = joystick3;
@@ -122,7 +124,7 @@ void operatorControl() {
 		}
 
 		//for hypothetical tank drive controls
-		if (1 == 1)
+		if (1 == 0)
 		{
 			XDriveX = joystick4;
 			XDriveY = ((joystick3+joystick2)/2);
@@ -131,10 +133,20 @@ void operatorControl() {
 
 
 		// Y component, X component, Rotation
-		motorSet(1, -XDriveY - XDriveX - XDriveR); // Front Left
-		motorSet(2,  XDriveY - XDriveX - XDriveR); // Front Right
-		motorSet(3,  XDriveY + XDriveX - XDriveR); // Back Left
-		motorSet(4, -XDriveY + XDriveX - XDriveR); // Back Right
+		/*motorSet(9,  -XDriveY - XDriveX - XDriveR); // Front Left
+		motorSet(2,   XDriveY - XDriveX - XDriveR); // Front Right
+		motorSet(1,   XDriveY + XDriveX - XDriveR); // Back Left
+		motorSet(10, -XDriveY + XDriveX - XDriveR); // Back Right
+	*/
+
+		motorSet(2, -XDriveY - XDriveX - XDriveR); // Front Left
+		motorSet(9,  XDriveY - XDriveX - XDriveR); // Front Right
+		motorSet(10,  XDriveY + XDriveX - XDriveR); // Back Left
+		motorSet(1, -XDriveY + XDriveX - XDriveR); // Back Right
+
+
+
+
 
 
 
@@ -142,9 +154,24 @@ void operatorControl() {
 		//------ Arm
 		//--------------------------------------------------------------------
 
-// this is old code.
+		if (button62_u)
+		{
+			lift = 64;
+		} else if (button62_d) {
+			lift = -64;
+		} else {
+			lift = 0;
+		}
 
 
+
+		//arm lift
+		motorSet(3,lift);
+		motorSet(4,lift);
+		motorSet(7,-lift);
+		motorSet(8,-lift);
+		motorSet(5,lift);
+		motorSet(6,-lift);
 
 		delay(20);
 	}

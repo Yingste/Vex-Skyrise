@@ -50,7 +50,19 @@
  */
 void autonomous() {
 
+	wait(5000);
+	motorSet(2,-127);
+	motorSet(9,-127);
+	motorSet(10,127);
+	motorSet(1,127);
+	wait(3000);
+	motorSet(2,0);
+	motorSet(9,0);
+	motorSet(10,0);
+	motorSet(1,0);
 
-//hello
+
+
 
 }
+
