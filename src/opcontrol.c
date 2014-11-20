@@ -57,46 +57,57 @@ typedef int bool;
 void operatorControl() {
 
 	while (1) {
+/*
+ Joystick mappings
+
+
+		   3		   2
+		   -		   -
+		4-----4		1-----1
+		   -    	   -
+		   3		   2
+
+	*/
 
 		//--------------------------------------------------------------------
 		//------ Joystick Declaration
 		//--------------------------------------------------------------------
 
 		//Declare Joystick1
-		int joystick1 = joystickGetAnalog(1,1);
-		int joystick2 = joystickGetAnalog(1,2);
-		int joystick3 = joystickGetAnalog(1,3);
-		int joystick4 = joystickGetAnalog(1,4);
-		bool button5u = joystickGetDigital(1,5,JOY_UP);
-		bool button5d = joystickGetDigital(1,5,JOY_DOWN);
-		bool button6u = joystickGetDigital(1,6,JOY_UP);
-		bool button6d = joystickGetDigital(1,6,JOY_DOWN);
-		bool button7u = joystickGetDigital(1,7,JOY_UP);
-		bool button7d = joystickGetDigital(1,7,JOY_DOWN);
-		bool button7l = joystickGetDigital(1,7,JOY_LEFT);
-		bool button7r = joystickGetDigital(1,7,JOY_RIGHT);
-		bool button8u = joystickGetDigital(1,8,JOY_UP);
-		bool button8d = joystickGetDigital(1,8,JOY_DOWN);
-		bool button8l = joystickGetDigital(1,8,JOY_LEFT);
-		bool button8r = joystickGetDigital(1,8,JOY_RIGHT);
+		int joystick1_1 = joystickGetAnalog(1,1);
+		int joystick1_2 = joystickGetAnalog(1,2);
+		int joystick1_3 = joystickGetAnalog(1,3);
+		int joystick1_4 = joystickGetAnalog(1,4);
+		bool button1_5u = joystickGetDigital(1,5,JOY_UP);
+		bool button1_5d = joystickGetDigital(1,5,JOY_DOWN);
+		bool button1_6u = joystickGetDigital(1,6,JOY_UP);
+		bool button1_6d = joystickGetDigital(1,6,JOY_DOWN);
+		bool button1_7u = joystickGetDigital(1,7,JOY_UP);
+		bool button1_7d = joystickGetDigital(1,7,JOY_DOWN);
+		bool button1_7l = joystickGetDigital(1,7,JOY_LEFT);
+		bool button1_7r = joystickGetDigital(1,7,JOY_RIGHT);
+		bool button1_8u = joystickGetDigital(1,8,JOY_UP);
+		bool button1_8d = joystickGetDigital(1,8,JOY_DOWN);
+		bool button1_8l = joystickGetDigital(1,8,JOY_LEFT);
+		bool button1_8r = joystickGetDigital(1,8,JOY_RIGHT);
 
 		//Declare Joystick2
 		int joystick2_1 = joystickGetAnalog(2,1);
 		int joystick2_2 = joystickGetAnalog(2,2);
 		int joystick2_3 = joystickGetAnalog(2,3);
 		int joystick2_4 = joystickGetAnalog(2,4);
-		bool button52_u = joystickGetDigital(2,5,JOY_UP);
-		bool button52_d = joystickGetDigital(2,5,JOY_DOWN);
-		bool button62_u = joystickGetDigital(2,6,JOY_UP);
-		bool button62_d = joystickGetDigital(2,6,JOY_DOWN);
-		bool button72_u = joystickGetDigital(2,7,JOY_UP);
-		bool button72_d = joystickGetDigital(2,7,JOY_DOWN);
-		bool button72_l = joystickGetDigital(2,7,JOY_LEFT);
-		bool button72_r = joystickGetDigital(2,7,JOY_RIGHT);
-		bool button82_u = joystickGetDigital(2,8,JOY_UP);
-		bool button82_d = joystickGetDigital(2,8,JOY_DOWN);
-		bool button82_l = joystickGetDigital(2,8,JOY_LEFT);
-		bool button82_r = joystickGetDigital(2,8,JOY_RIGHT);
+		bool button2_5u = joystickGetDigital(2,5,JOY_UP);
+		bool button2_5d = joystickGetDigital(2,5,JOY_DOWN);
+		bool button2_6u = joystickGetDigital(2,6,JOY_UP);
+		bool button2_6d = joystickGetDigital(2,6,JOY_DOWN);
+		bool button2_7u = joystickGetDigital(2,7,JOY_UP);
+		bool button2_7d = joystickGetDigital(2,7,JOY_DOWN);
+		bool button2_7l = joystickGetDigital(2,7,JOY_LEFT);
+		bool button2_7r = joystickGetDigital(2,7,JOY_RIGHT);
+		bool button2_8u = joystickGetDigital(2,8,JOY_UP);
+		bool button2_8d = joystickGetDigital(2,8,JOY_DOWN);
+		bool button2_8l = joystickGetDigital(2,8,JOY_LEFT);
+		bool button2_8r = joystickGetDigital(2,8,JOY_RIGHT);
 
 
 		//--------------------------------------------------------------------
@@ -118,17 +129,17 @@ void operatorControl() {
 		//for arcade drive
 		if (1 == 1)
 		{
-		XDriveX = joystick4;
-		XDriveY = joystick3;
-		XDriveR = joystick1;
+		XDriveX = joystick1_4;
+		XDriveY = joystick1_3;
+		XDriveR = joystick1_1;
 		}
 
 		//for hypothetical tank drive controls
 		if (1 == 0)
 		{
-			XDriveX = joystick4;
-			XDriveY = ((joystick3+joystick2)/2);
-			XDriveR = (1-((joystick3-joystick2)/2));// I think I need to increase the rotation when doing slight turn. as of now if only one stick is applied it will 45 strafe.
+			XDriveX = joystick1_4;
+			XDriveY = ((joystick1_3+joystick1_2)/2);
+			XDriveR = (1-((joystick1_3-joystick1_2)/2));// I think I need to increase the rotation when doing slight turn. as of now if only one stick is applied it will 45 strafe.
 		}
 
 
@@ -154,13 +165,13 @@ void operatorControl() {
 		//------ Arm
 		//--------------------------------------------------------------------
 
-		if (button62_u)
+		if (button1_6u)
 		{
 			lift = 64;
-		} else if (button62_d) {
+		} else if (button1_6d) {
 			lift = -64;
 		} else {
-			lift = 0;
+			lift = joystick2_2;
 		}
 
 
