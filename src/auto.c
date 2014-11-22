@@ -49,7 +49,9 @@
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
 void autonomous() {
+int auto_prog;
 
+	/*
 	wait(5000);
 	motorSet(2,-127);
 	motorSet(9,-127);
@@ -60,6 +62,43 @@ void autonomous() {
 	motorSet(9,0);
 	motorSet(10,0);
 	motorSet(1,0);
+*/
+
+
+
+	switch (auto_prog) {
+
+			//  ****  Set switches to indicate which autonomous code to initialize  *****
+
+			case 0:
+
+				break;
+			case 1:
+
+				break;
+			case 10:
+
+				break;
+			case 11:
+
+				break;
+			case 100:
+
+				break;
+			case 101:
+
+				break;
+			case 110:
+
+				break;
+			case 111:
+
+				break;
+			default:
+
+				break;
+			}
+
 
 
 

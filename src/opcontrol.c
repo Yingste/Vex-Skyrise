@@ -123,34 +123,7 @@ void operatorControl() {
 		//--------------------------------------------------------------------
 
 
-
-		// Controller 1/2, Stick L/R, Axis X/Y
-
-		//for arcade drive
-		if (1 == 1)
-		{
-		XDriveX = joystick1_4;
-		XDriveY = joystick1_3;
-		XDriveR = joystick1_1;
-		}
-
-
-
-
-		// Y component, X component, Rotation
-		/*motorSet(9,  -XDriveY - XDriveX - XDriveR); // Front Left
-		motorSet(2,   XDriveY - XDriveX - XDriveR); // Front Right
-		motorSet(1,   XDriveY + XDriveX - XDriveR); // Back Left
-		motorSet(10, -XDriveY + XDriveX - XDriveR); // Back Right
-	*/
-
-		motorSet(2, -XDriveY - XDriveX - XDriveR); // Front Left
-		motorSet(9,  XDriveY - XDriveX - XDriveR); // Front Right
-		motorSet(10,  XDriveY + XDriveX - XDriveR); // Back Left
-		motorSet(1, -XDriveY + XDriveX - XDriveR); // Back Right
-
-
-
+		xdrive();
 
 
 

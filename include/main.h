@@ -45,6 +45,9 @@
 
 #include <API.h>
 
+//xdrive file
+#include <xdrive.c>
+
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
 extern "C" {
